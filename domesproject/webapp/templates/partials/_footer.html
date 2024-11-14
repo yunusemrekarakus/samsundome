@@ -1,0 +1,47 @@
+<div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <h4 class="text-light mb-4">Adres</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Yalı Mah. Atakum, Samsun, Türkiye</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+90552 422 5555</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@samsundomesbungalov.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="https://instagram.com/samsun_domes_bungalov"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4 class="text-light mb-4">Hizmetler</h4>
+                <a class="btn btn-link" href="{% url 'services' %}">Samsunda İlk Dome Bungalov deneyimi</a>
+                <a class="btn btn-link" href="{% url 'services' %}">Odadan havuza açılan bölme</a>
+                <a class="btn btn-link" href="{% url 'services' %}">Isıtmalı havuz</a>
+                <a class="btn btn-link" href="{% url 'services' %}">Netflix</a>
+                <a class="btn btn-link" href="{% url 'services' %}">Barbekü Alanı</a>
+                <a class="btn btn-link" href="{% url 'services' %}">Açık Hava Sineması</a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4 class="text-light mb-4">Navigasyon</h4>
+                <a class="btn btn-link" href="{% url 'about' %}">Hakkımızda</a>
+                <a class="btn btn-link" href="{% url 'contact' %}">İletişime Geç</a>
+                <a class="btn btn-link" href="{% url 'services' %}">Hizmetler</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                &copy; <a class="border-bottom" href="{% url 'home' %}">Samsun Domes Bungalov</a>, Tüm Hakları Saklıdır.
+            </div>
+            <div class="col-md-6 text-center ">
+                {% if association %}
+                    <p class="mb-0">{{ association.name }} dernek üyesidir</p>
+                    <img src="{{ association.logo.url }}" alt="{{ association.name }} Dernek Logosu" style="height: 40px;">
+                    
+                {% endif %}
+            </div>            
+        </div>
+    </div>
+    
+</div>

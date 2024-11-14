@@ -1,0 +1,310 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+{%include 'partials/_header.html'%}
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 pb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            {% for carousel in carousel %}
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="{{carousel.resim.url}}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-8 text-center">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">{{carousel.baslik1}}</h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-4">{{carousel.baslik2}}</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">{{carousel.icerik}}
+                                </p>
+                                <a href="{{carousel.button_link}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{carousel.button_text}}</a>
+                                {% comment %} <a href="http://wa.me/+905524225555" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Whatsapp İletişim</a> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+            
+        </div>
+    </div>
+    
+    <!-- Carousel End -->
+    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+        <div class  ="container feature px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <!-- Left column with service features -->
+                <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 ps-lg-0">
+                        <div class="section-title text-start">
+                            <h1 class="display-5 mb-4">Hizmet Kalitesi</h1>
+                        </div>
+                        <p class="mb-4 pb-2">
+                            Müşterilerimize kaliteli hizmet vermeyi her zaman ön planda tutarız. Kaliteli hizmet eşittir Mutlu Müşteri, Mutlu Müşteri eşittir Benzersiz deneyim.
+                        </p>
+                        <div class="row g-4">
+                            <!-- Feature 1 -->
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-check fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Kalite</p>
+                                        <h5 class="mb-0">Yüksek</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature 2 -->
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-check fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Tasarım</p>
+                                        <h5 class="mb-0">Göz Alıcı</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature 3 -->
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-check fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Deneyim</p>
+                                        <h5 class="mb-0">Son Seviye</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature 4 -->
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-check fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Memnuniyet</p>
+                                        <h5 class="mb-0">Öncelik</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right column with image -->
+                <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="static/img/feature.jpg" style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-5">Foto Galeri</h1>
+            </div>
+            
+            <div class="row g-4 portfolio-container">
+                {% for photo in galeri %}
+                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                <!-- Görüntü boyutlarını sabitlemek için "gallery-thumbnail" sınıfını ekliyoruz -->
+                                <img class="img-fluid w-100 gallery-thumbnail" src="{{ photo.image.url }}" alt="{{ photo.alt_text }}">
+                                <div class="portfolio-overlay">
+                                    <!-- Lightbox bağlantısı, fotoğraf üzerine tıklandığında orijinal boyutlarda açılacak -->
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ photo.image.url }}" data-lightbox="portfolio">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Henüz fotoğraf eklenmedi.</p>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    <!-- Video Galeri Başlangıcı -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-5">Video Galeri</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                {% for video in videolar %}
+                <div class="testimonial-item text-center">
+                    <!-- Video thumbnail -->
+                    <div class="video-thumbnail-container" onclick="openModal('{{ video.video_file.url }}')">
+                        <video width="100%" height="200" muted>
+                            <source src="{{ video.video_file.url }}#t={{ video.start_time }},{{ video.end_time }}" type="video/mp4">
+                            Tarayıcınız video oynatmayı desteklemiyor.
+                        </video>
+                        <!-- Oynatma simgesi -->
+                        <div class="play-icon">
+                            <i class="fa fa-play"></i>
+                        </div>
+                    </div>
+                    {% comment %} <div class="testimonial-text text-center p-4">
+                        <h5 class="mb-1">{{ video.title }}</h5>
+                        <span class="fst-italic">{{ video.description }}</span>
+                    </div> {% endcomment %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Video İzle</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video id="modalVideo" controls>
+                        <source id="videoSource" type="video/mp4">
+                        Tarayıcınız video oynatmayı desteklemiyor.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-5">Müşteri Görüş ve Yorumları</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                {% for yorum in yorumlar %}
+                    <div class="testimonial-item text-center">
+                        <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{yorum.resim.url}}" style="width: 90px; height: 90px;">
+                        <div class="testimonial-text text-center p-4">
+                            <p>{{ yorum.yorum }}</p>
+                            <h5 class="mb-1">{{ yorum.musteri_adi }}</h5>
+                            <span class="fst-italic">{{ yorum.yildiz }}</span> 
+                            <i class="fa fa-star" style="color: orange; margin-left: 5px;"></i>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-5">Sizden Gelenler</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                {% for video in yorumlar %}
+                <div class="testimonial-item text-center">
+                    <!-- Video thumbnail -->
+                    <div class="video-thumbnail-container" onclick="openModal('{{ video.video.url }}')">
+                        <video width="100%" height="200" muted>
+                            <source src="{{ video.video.url }}#t={{ video.start_time }},{{ video.end_time }}" type="video/mp4">
+                            Tarayıcınız video oynatmayı desteklemiyor.
+                        </video>
+                        <!-- Oynatma simgesi -->
+                        <div class="play-icon">
+                            <i class="fa fa-play"></i>
+                        </div>
+                    </div>
+                    {% comment %} <div class="testimonial-text text-center p-4">
+                        <h5 class="mb-1">{{ video.title }}</h5>
+                        <span class="fst-italic">{{ video.description }}</span>
+                    </div> {% endcomment %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Feature Start -->
+    
+    <!-- Feature End -->
+
+
+    
+
+
+    
+
+
+    <!-- Footer Start -->
+    {%include 'partials/_footer.html'%}
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/wow/wow.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/waypoints/waypoints.min.js"></script>
+    <script src="static/lib/counterup/counterup.min.js"></script>
+    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="static/lib/lightbox/js/lightbox.min.js"></script>
+    <script>
+        // Video modalını açma
+        function openModal(videoUrl) {
+            var modal = document.getElementById("videoModal");
+            var videoSource = document.getElementById("videoSource");
+            var modalVideo = document.getElementById("modalVideo");
+
+            // Video kaynağını değiştiriyoruz
+            videoSource.src = videoUrl;
+            modalVideo.load(); // Yeni kaynağı yükler
+
+            // Modalı göster
+            modal.style.display = "block";
+        }
+
+        // Modalı kapatma
+        function closeModal() {
+            var modal = document.getElementById("videoModal");
+            modal.style.display = "none";
+            var modalVideo = document.getElementById("modalVideo");
+            modalVideo.pause(); // Video duraklatılır
+        }
+
+        // Modal dışında bir yere tıklanınca modalı kapat
+        window.onclick = function (event) {
+            var modal = document.getElementById("videoModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+    <!-- Template Javascript -->
+    <script src="static/js/main.js"></script>
+    
+    
+</body>
+
+</html>
